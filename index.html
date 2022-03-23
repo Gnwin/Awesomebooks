@@ -1,13 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Awesome Books</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Awesome Books</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+  <header class="header">
+    <h1 class="logo">Awesome books</h1>
+    <nav class="nav">
+      <ul class="navlist">
+        <li class="navitem"><a class="navlink" href="#bookList">List</a></li>
+        <li class="navitem"><a class="navlink" href="#addnew">Add new</a></li>
+        <li class="navitem"><a class="navlink" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main">
+    <h1>All Awesome books</h1>
+
+    <section class="section" id="booklist"></section>
+
+    <section class="addbookform section" id="addnew">
+      <hr id="line">
+      <h2>Add a new book</h2>
+      <form  id="add" class="addBook" action="" method="">
+        <input class = 'input' type="text" name="Title" value="" placeholder="Title">
+        <input type="text" name="Author" value="" placeholder="Author">
+        <button id="addBtn">Add</button>
+      </form>
+    </section>
+
+    <section class="contactsection section" id="contact">
+      <hr id="line">
+      <h2>Contact information</h2>
+      <p>Do you have any questions or you just want to say "hello"?</p>
+      <ul>
+        <li class="contactlist">Our email: mail@mail.com</li>
+        <li class="contactlist">Our phonme number: 785776767</li>
+        <li class="contactlist">Our address: Streetname 22, 84036 City, Country</li>
+      </ul>
+    </section>
+  </main>
+
+
+  <footer class="footer">
+    <h1 class="logo">Copyright</h1>
+    <nav class="nav">
+      <p>.......</p>
+    </nav>
+  </footer>
 <script src="/awesome.js"></script>
 </body>
 </html>
