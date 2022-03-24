@@ -1,6 +1,6 @@
 const input = document.querySelectorAll('[type="text"]');
-const addB = document.getElementById("addBtn");
-const remB = document.getElementById("rem");
+const addB = document.getElementById('addBtn');
+const remB = document.getElementById('rem');
 let books = [];
 
 function setLocalStorage() {
@@ -46,7 +46,7 @@ function displayBook() {
 displayBook();
 
 function add() {
-  addB.addEventListener('click', function(event){
+  addB.addEventListener('click', (event) => {
     event.preventDefault();
     if (input[0].value === '' || input[1].value === '') {
       return;
@@ -57,7 +57,7 @@ function add() {
     input[0].value = '';
     input[1].value = '';
     displayBook();
-  })
+  });
   // return false;
 }
 add();
