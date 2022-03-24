@@ -45,6 +45,7 @@ displayBook();
 
 let addBtn = document.querySelector('#addBtn');
 let input = document.querySelectorAll('[type="text"]');
+let remBtn = document.querySelector('.removeBtn');
 
 addBtn.addEventListener('click', (e)=>{
   e.preventDefault();
@@ -55,10 +56,9 @@ addBtn.addEventListener('click', (e)=>{
   let author = input[1].value;
   console.log(title, author);
   addBook(title, author);
+  input[0].value = '';
+  input[1].value = '';
   displayBook();
-  // input[0].value = '';
-  // input[1].value = '';
-  // e.preventDefault();
   return false;
 })
 
