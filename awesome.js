@@ -1,22 +1,24 @@
-let booklist = [
-  // {
-  //   title: 'strong men',
-  //   author: 'godwin'
-  // },
-  // {
-  //   title: 'javascript',
-  //   author: 'chioma'
-  // },
+let books = [
+  {
+    id: 0,
+    title: 'strong men',
+    author: 'godwin'
+  },
+  {
+    id: 1,
+    title: 'javascript',
+    author: 'chioma'
+  }
 ];
 
 function addBook(title, author){
-  booklist.push({title, author})
+  var id = Math.random().toString(16).slice(2);
+  books.push({id, title, author});
   console.log(booklist)
 }
-// addBook('fjjfjhf', 'nfnvvnhn');
 
 function removeBook(title, author){
-  booklist = booklist.filter(book => {
+  books = books.filter(book => {
     return book.title !== title || book.author !== author;
   })
 }
@@ -25,10 +27,13 @@ function displayBook(){
   let bookList = document.getElementById('booklist');
 
   let markup = '';
-  booklist.forEach(book => {
-    let element = `<div class=''>
-    <p class=''>${book.title}</p>
-    <p class=''>${book.author}</p>
+  books.forEach(book => {
+    let element = `<div class='book'>
+      <div class=''>
+        <p>${book.title}</p>
+        <p><small>by ${book.author}</small></p>
+      </div>
+      <button class='removeBtn'>Remove</button>
     </div>`;
     markup += element;
   })
@@ -36,20 +41,27 @@ function displayBook(){
   bookList.innerHTML = markup;
 }
 
-// displayBook();
+displayBook();
 
 let addBtn = document.querySelector('#addBtn');
 let input = document.querySelectorAll('[type="text"]');
-addBtn.addEventListener('click', ()=>{
+
+addBtn.addEventListener('click', (e)=>{
+  e.preventDefault();
   if(input[0].value === '' || input[1].value === ''){
     return;
   }
   let title = input[0].value;
   let author = input[1].value;
+  console.log(title, author);
   addBook(title, author);
   displayBook();
   // input[0].value = '';
   // input[1].value = '';
-  // return false;
+  // e.preventDefault();
+  return false;
 })
+
+// var id = Math.random().toString(16).slice(2);
+// console.log(id);
 
