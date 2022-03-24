@@ -2,24 +2,26 @@ const input = document.querySelectorAll('[type="text"]');
 const addB = document.getElementById('addBtn');
 let books = [];
 
-function setLocalStorage() {
-  localStorage.setItem('books', JSON.stringify(books));
+function setLocalStorage(book) {
+  localStorage.setItem('books', JSON.stringify(book));
 }
 
 function addBook(title, author) {
   const id = Math.random().toString(16).slice(2);
   books.push({ id, title, author });
-  setLocalStorage();
+  setLocalStorage(books);
 }
 
 function removeBook(id) {
-  books = books.filter((book) => book.id !== id);
-  setLocalStorage();
+  let bookStorage = JSON.parse(localStorage.getItem('books'));
+  bookStorage = bookStorage.filter((book) => book.id !== id);
+  books = bookStorage;
+  setLocalStorage(books);
 }
 
 function displayBook() {
   if (localStorage.length === 0) {
-    setLocalStorage();
+    setLocalStorage(books);
   }
   const bookStorage = JSON.parse(localStorage.getItem('books'));
   const bookList = document.getElementById('booklist');
