@@ -13,22 +13,22 @@ function addBook(title, author) {
 
 function removeBook(id) {
   books = books.filter((book) => book.id !== id);
-  setLocalStorage()
+  setLocalStorage();
 }
 
 function displayBook() {
-  if (localStorage.length === 0){
+  if (localStorage.length === 0) {
     setLocalStorage();
   }
   const bookStorage = JSON.parse(localStorage.getItem('books'));
-  let bookList = document.getElementById('booklist');
+  const bookList = document.getElementById('booklist');
   let markup = '';
   
   if (bookStorage.length === 0) {
-    markup = `<div class='pad'>No Books to display. Click add new to add a book to the list<div>`;
+    markup = '<div class=\'pad\'>No Books to display. Click add new to add a book to the list<div>';
   } else {
     bookStorage.forEach(book => {
-      let element = `<div class='book'>
+      const element = `<div class='book'>
         <div class=''>
           <p>${book.title}</p>
           <small>by</small>
@@ -37,7 +37,7 @@ function displayBook() {
         <button class='removeBtn' onclick = remove(event);>Remove</button>
       </div>`;
       markup += element;
-    })
+    });
   }
   bookList.innerHTML = markup;
 }
@@ -46,11 +46,11 @@ displayBook();
 
 function add(event) {
   event.preventDefault();
-  if(input[0].value === '' || input[1].value === ''){
+  if (input[0].value === '' || input[1].value === '') {
     return;
   }
-  let title = input[0].value;
-  let author = input[1].value;
+  const title = input[0].value;
+  const author = input[1].value;
   addBook(title, author);
   input[0].value = '';
   input[1].value = '';
@@ -64,8 +64,8 @@ function remove(event) {
   const book = event.target.parentElement.children[0];
   const title = book.children[0].innerHTML;
   const author = book.children[2].children[0].innerHTML;
-  for (let i = 0; i < bookStorage.length; i+=1){
-    if (bookStorage[i].title === title && bookStorage[i].author === author){
+  for (let i = 0; i < bookStorage.length; i += 1) {
+    if (bookStorage[i].title === title && bookStorage[i].author === author) {
       removeBook(bookStorage[i].id);
     }
   }
