@@ -1,4 +1,6 @@
 const input = document.querySelectorAll('[type="text"]');
+const addB = document.getElementById("addBtn");
+const remB = document.getElementById("rem");
 let books = [];
 
 function setLocalStorage() {
@@ -33,7 +35,7 @@ function displayBook() {
           <small>by</small>
           <p><small>${book.author}</small></p>
         </div>
-        <button class='removeBtn' onclick = remove(event);>Remove</button>
+        <button class='removeBtn' onclick=remove(event);>Remove</button>
       </div>`;
       markup += element;
     });
@@ -43,24 +45,27 @@ function displayBook() {
 
 displayBook();
 
-function add(event) {
-  event.preventDefault();
-  if (input[0].value === '' || input[1].value === '') {
-    return;
-  }
-  const title = input[0].value;
-  const author = input[1].value;
-  addBook(title, author);
-  input[0].value = '';
-  input[1].value = '';
-  displayBook();
+function add() {
+  addB.addEventListener('click', function(event){
+    event.preventDefault();
+    if (input[0].value === '' || input[1].value === '') {
+      return;
+    }
+    const title = input[0].value;
+    const author = input[1].value;
+    addBook(title, author);
+    input[0].value = '';
+    input[1].value = '';
+    displayBook();
+  })
   // return false;
 }
+add();
 
-function remove(event) {
-  event.preventDefault();
+function remove(val) {
+  val.preventDefault();
   const bookStorage = JSON.parse(localStorage.getItem('books'));
-  const book = event.target.parentElement.children[0];
+  const book = val.target.parentElement.children[0];
   const title = book.children[0].innerHTML;
   const author = book.children[2].children[0].innerHTML;
   for (let i = 0; i < bookStorage.length; i += 1) {
