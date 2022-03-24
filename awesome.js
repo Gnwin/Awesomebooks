@@ -5,10 +5,8 @@ function setLocalStorage() {
   localStorage.setItem('books', JSON.stringify(books));
 }
 
-
-
 function addBook(title, author) {
-  let id = Math.random().toString(16).slice(2);
+  const id = Math.random().toString(16).slice(2);
   books.push({ id, title, author });
   setLocalStorage();
 }
@@ -43,7 +41,9 @@ function displayBook() {
   }
   bookList.innerHTML = markup;
 }
+
 displayBook();
+
 function add(event) {
   event.preventDefault();
   if(input[0].value === '' || input[1].value === ''){
@@ -57,7 +57,6 @@ function add(event) {
   displayBook();
   // return false;
 }
-
 
 function remove(event) {
   event.preventDefault();
