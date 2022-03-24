@@ -25,6 +25,7 @@ function displayBook(){
   const bookStorage = JSON.parse(localStorage.getItem('books'));
   let bookList = document.getElementById('booklist');
   let markup = '';
+  
   if (bookStorage.length === 0) {
     markup = `<div class='pad'>No Books to display. Click add new to add a book to the list<div>`;
   } else {
@@ -58,7 +59,7 @@ function add(event){
 }
 
 
-let remove = (event) => {
+function remove(event){
   event.preventDefault();
   const bookStorage = JSON.parse(localStorage.getItem('books'));
   let book = event.target.parentElement.children[0];
