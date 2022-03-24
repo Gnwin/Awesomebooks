@@ -23,11 +23,10 @@ function displayBook() {
   const bookStorage = JSON.parse(localStorage.getItem('books'));
   const bookList = document.getElementById('booklist');
   let markup = '';
-  
   if (bookStorage.length === 0) {
     markup = '<div class=\'pad\'>No Books to display. Click add new to add a book to the list<div>';
   } else {
-    bookStorage.forEach(book => {
+    bookStorage.forEach((book) => {
       const element = `<div class='book'>
         <div class=''>
           <p>${book.title}</p>
