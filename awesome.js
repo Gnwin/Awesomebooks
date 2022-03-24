@@ -1,24 +1,24 @@
-let input = document.querySelectorAll('[type="text"]');
+const input = document.querySelectorAll('[type="text"]');
 let books = [];
 
-function setLocalStorage(){
+function setLocalStorage() {
   localStorage.setItem('books', JSON.stringify(books));
 }
 
-displayBook();
 
-function addBook(title, author){
-  var id = Math.random().toString(16).slice(2);
-  books.push({id, title, author});
+
+function addBook(title, author) {
+  let id = Math.random().toString(16).slice(2);
+  books.push({ id, title, author });
   setLocalStorage();
 }
 
-function removeBook(id){
-  books = books.filter(book => book.id !== id);
+function removeBook(id) {
+  books = books.filter((book) => book.id !== id);
   setLocalStorage()
 }
 
-function displayBook(){
+function displayBook() {
   if (localStorage.length === 0){
     setLocalStorage();
   }
@@ -43,8 +43,8 @@ function displayBook(){
   }
   bookList.innerHTML = markup;
 }
-
-function add(event){
+displayBook();
+function add(event) {
   event.preventDefault();
   if(input[0].value === '' || input[1].value === ''){
     return;
@@ -59,13 +59,13 @@ function add(event){
 }
 
 
-function remove(event){
+function remove(event) {
   event.preventDefault();
   const bookStorage = JSON.parse(localStorage.getItem('books'));
-  let book = event.target.parentElement.children[0];
-  let title = book.children[0].innerHTML;
-  let author = book.children[2].children[0].innerHTML;
-  for (let i=0; i<bookStorage.length; i++){
+  const book = event.target.parentElement.children[0];
+  const title = book.children[0].innerHTML;
+  const author = book.children[2].children[0].innerHTML;
+  for (let i = 0; i < bookStorage.length; i+=1){
     if (bookStorage[i].title === title && bookStorage[i].author === author){
       removeBook(bookStorage[i].id);
     }
