@@ -1,6 +1,5 @@
 const input = document.querySelectorAll('[type="text"]');
 const addB = document.getElementById('addBtn');
-const remB = document.getElementById('rem');
 let books = [];
 
 function setLocalStorage() {
