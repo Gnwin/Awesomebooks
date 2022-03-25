@@ -42,6 +42,11 @@ function displayBook() {
     });
   }
   bookList.innerHTML = markup;
+  bookList.childNodes.forEach((book, index) => {
+    if ((index + 1) % 2 !== 0){
+      book.className = 'book gray';
+    }
+  })
 }
 
 displayBook();
@@ -83,7 +88,7 @@ const section = document.querySelectorAll('.section');
 
 for (let i=0; i<section.length; i++){
   section[i].style.display = 'none';
-
+  section[0].style.display = 'block';
   navlist[i].addEventListener('click', ()=>{
     for (let j=0; j<section.length; j++){
       if (i === j) continue;
