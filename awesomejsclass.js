@@ -109,8 +109,7 @@ const grabUserInput = new GrabUserInput();
 const input = grabUserInput.input;
 const addB = grabUserInput.addB;
 let bookStorage = new LocalStore();
-
-displayBook.display(bookStorage.setLocalStorage, books.booklist);
+displayBook.display();
 
 
 
