@@ -43,6 +43,9 @@ class GrabUserInput {
     Books.add(title, author);
     input[0].value = '';
     input[1].value = '';
+    const section = document.querySelectorAll('.section');
+    section[0].style.display = 'block';
+    section[1].style.display = 'none';
   }
   
   remove(val){
@@ -83,6 +86,32 @@ class Display {
         markup1 += elemenT;
       });
       bookList.innerHTML = markup1;
+      bookList.childNodes.forEach((book, index) => {
+        if ((index + 1) % 2 !== 0){
+          book.className = 'book gray';
+        }
+      })
+    }
+  }
+}
+
+class ShowAndHide {
+  constructor(){
+    this.navlist = document.querySelectorAll('.navlink');
+    this.section = document.querySelectorAll('.section');
+  }
+
+  showAndHide(){
+    for (let i=0; i<this.section.length; i++){
+      this.section[i].style.display = 'none';
+      this.section[0].style.display = 'block';
+      this.navlist[i].addEventListener('click', ()=>{
+        for (let j=0; j<this.section.length; j++){
+          if (i === j) continue;
+          this.section[j].style.display = 'none';
+        }
+        this.section[i].style.display = 'block';
+      })
     }
   }
 }
@@ -110,14 +139,5 @@ const input = grabUserInput.input;
 const addB = grabUserInput.addB;
 let bookStorage = new LocalStore();
 displayBook.display();
-
-
-
-// Background flipflop
-// let count = 1;
-
-// count += 1;
-// if (count % 2 !== 0) {
-//   bDiv.classList.add('gray');
-//   count = 1;
-// }
+const dynamics = new ShowAndHide();
+dynamics.showAndHide();

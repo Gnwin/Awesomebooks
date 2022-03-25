@@ -77,3 +77,18 @@ function remove(val) {
   displayBook();
 }
 
+
+const navlist = document.querySelectorAll('.navlink');
+const section = document.querySelectorAll('.section');
+
+for (let i=0; i<section.length; i++){
+  section[i].style.display = 'none';
+
+  navlist[i].addEventListener('click', ()=>{
+    for (let j=0; j<section.length; j++){
+      if (i === j) continue;
+      section[j].style.display = 'none';
+    }
+    section[i].style.display = 'block';
+  })
+}
