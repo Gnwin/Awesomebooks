@@ -13,10 +13,9 @@ class Books {
   
   static add(title, author){
     let book = new Book(title, author);
-    console.log(book);
     books.booklist.push(book);
     bookStorage.setLocalStorage(books.booklist);
-    displayBook.display(bookStorage.setLocalStorage, books.booklist);
+    displayBook.display();
   }
 
   static remove(id){
@@ -24,7 +23,7 @@ class Books {
     bookk = bookk.filter((book) => book.id !== id);
     books.booklist = bookk;
     bookStorage.setLocalStorage(books.booklist);
-    displayBook.display(bookStorage.setLocalStorage, books.booklist);
+    displayBook.display();
   }
 }
   
@@ -41,7 +40,6 @@ class GrabUserInput {
     }
     const title = input[0].value;
     const author = input[1].value;
-
     Books.add(title, author);
     input[0].value = '';
     input[1].value = '';
@@ -73,10 +71,7 @@ class Display {
     this.markup = markup;
   }
 
-  display(setlocal, bk){
-    if (localStorage.length === 0) {
-      setlocal(bk);
-    }
+  display(){
     const bookStorage = JSON.parse(localStorage.getItem('books'));
     const bookList = document.getElementById('booklist');
     let markup1 = '';
@@ -101,24 +96,29 @@ let element = (book) => `<div class='book'>
 </div>
 <button class='removeBtn' onclick=\'grabUserInput.remove(event);\'>Remove</button>
 </div>`;
-
 let markup = '<div class=\'pad\'>No Books to display. Click add new to add a book to the list<div>';
 let displayBook = new Display(element, markup);
-
 let books;
-
 if (localStorage.length !== 0){
   let b = JSON.parse(localStorage.getItem('books'))
   books = new Books(b);
 } else {
   books = new Books([]);
 }
-
-console.log(books);
 const grabUserInput = new GrabUserInput();
-
 const input = grabUserInput.input;
 const addB = grabUserInput.addB;
 let bookStorage = new LocalStore();
 
 displayBook.display(bookStorage.setLocalStorage, books.booklist);
+
+
+
+// Background flipflop
+// let count = 1;
+
+// count += 1;
+// if (count % 2 !== 0) {
+//   bDiv.classList.add('gray');
+//   count = 1;
+// }
