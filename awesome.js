@@ -59,10 +59,10 @@ function add() {
     input[1].value = '';
     displayBook();
   });
-  // return false;
 }
 add();
 
+// eslint-disable-next-line no-unused-vars
 function remove(val) {
   val.preventDefault();
   const bookStorage = JSON.parse(localStorage.getItem('books'));
