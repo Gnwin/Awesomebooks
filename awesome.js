@@ -76,3 +76,4 @@ function remove(val) {
   }
   displayBook();
 }
+
