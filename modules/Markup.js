@@ -1,4 +1,5 @@
-//html content to show when there are books
+// html content to show when there are books
+
 const element = (book) => `<div class='book'>
   <div class=''>
   <p>${book.title}</p>
@@ -8,4 +9,4 @@ const element = (book) => `<div class='book'>
   <button class='removeBtn'>Remove</button>
 </div>`;
 
-export default element
+export default element;

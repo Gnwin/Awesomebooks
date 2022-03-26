@@ -1,7 +1,8 @@
-//localStorage write access
+// localStorage write access
 
 export default class LocalStore {
-  setLocalStorage(book){
+  // eslint-disable-next-line class-methods-use-this
+  setLocalStorage(book) {
     localStorage.setItem('books', JSON.stringify(book));
   }
 }

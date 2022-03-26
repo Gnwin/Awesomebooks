@@ -1,10 +1,12 @@
 // User add and remove books
-import Books from './Books.js'
+// eslint-disable-next-line import/no-cycle
+import Books from './Books.js';
 
 class GrabUserInput {  
-  add(event){
+    // eslint-disable-next-line class-methods-use-this
+  add(event) {
     event.preventDefault();
-    const input = document.querySelectorAll('[type="text"]')
+    const input = document.querySelectorAll('[type="text"]');
     if (input[0].value === '' || input[1].value === '') {
       return;
     }
@@ -17,8 +19,8 @@ class GrabUserInput {
     section[0].style.display = 'block';
     section[1].style.display = 'none';
   }
-    
-  remove(val){
+
+  remove(val) {
     val.preventDefault();
     const bookStorage = JSON.parse(localStorage.getItem('books'));
     const book = val.target.parentElement.children[0];

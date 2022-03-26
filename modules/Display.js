@@ -1,10 +1,12 @@
 // display Books
-import grabUserInput from './GrabUserInput.js'
-import element from './markup.js'
-import blank from './blank.js'
+// eslint-disable-next-line import/no-cycle
+import grabUserInput from './GrabUserInput.js';
+import element from './Markup.js';
+import blank from './Blank.js';
 
 class Display {
-  display(){
+  // eslint-disable-next-line class-methods-use-this
+  display() {
     const bookStorage = JSON.parse(localStorage.getItem('books'));
     const bookList = document.getElementById('booklist');
     let markup1 = '';
@@ -20,14 +22,14 @@ class Display {
         if ((index + 1) % 2 !== 0){
           book.className = 'book gray';
         }
-      })
+      });
       const removeB = document.querySelectorAll('.removeBtn');
-      for(let i=0; i<removeB.length; i++){
+      for (let i= 0; i < removeB.length; i += 1) {
         removeB[i].onclick = grabUserInput.remove;
       }
     }
   }
 }
 
-const displayBook = new Display();  
+const displayBook = new Display();
 export default displayBook;
