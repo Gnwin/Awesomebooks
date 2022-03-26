@@ -1,3 +1,4 @@
+/* stylelint-disable */
 body {
   text-align: center;
   position: relative;
@@ -160,3 +161,4 @@ h2 {
 .pad {
   padding: 5%;
 }
+/* stylelint-enable */
