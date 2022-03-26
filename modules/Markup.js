@@ -1,4 +1,4 @@
-
+//html content to show when there are books
 const element = (book) => `<div class='book'>
   <div class=''>
   <p>${book.title}</p>
