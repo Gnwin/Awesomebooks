@@ -53,6 +53,7 @@ body {
 
   .date {
     text-align: right;
+    padding: 2%;
   }
   
   .book {
@@ -140,7 +141,7 @@ body {
     display: flex;
     align-items: center;
     position: fixed;
-    width: 100%;
+    width: 98.5%;
     bottom: 0;
   }
   
