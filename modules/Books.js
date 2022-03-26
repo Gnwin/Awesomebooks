@@ -1,20 +1,34 @@
-export class Books {
+import Book from './Book.js'
+import LocalStore from './LocalStore.js'
+import displayBook from './Display.js'
+
+
+let bookStorage = new LocalStore();
+export default class Books {
     constructor(book){
       this.booklist = book;
     }
     
-    static add(title, author){
+    static add = (title, author) => {
       let book = new Book(title, author);
-      books.booklist.push(book);
-      bookStorage.setLocalStorage(books.booklist);
+        let booksArr = JSON.parse(localStorage.getItem('books'));
+        booksArr.push(book);
+        this.booklist = book;
+    //   console.log(books.booklist);
+    //   this.booklist.push(book);
+    //   console.log(this.booklist);
+
+      bookStorage.setLocalStorage(booksArr);
       displayBook.display();
     }
   
-    static remove(id){
-      let bookk = JSON.parse(localStorage.getItem('books'));
-      bookk = bookk.filter((book) => book.id !== id);
-      books.booklist = bookk;
-      bookStorage.setLocalStorage(books.booklist);
+    static remove = (id) =>{
+      let booksArr = JSON.parse(localStorage.getItem('books'));
+      booksArr = booksArr.filter((book) => book.id !== id);
+      this.booklist = booksArr;
+     bookStorage.setLocalStorage(booksArr);
+    //localStorage.setItem('books', JSON.stringify(book));
       displayBook.display();
     }
   }
+

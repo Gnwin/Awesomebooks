@@ -1,4 +1,4 @@
-export class ShowAndHide {
+export default class ShowAndHide {
     constructor(){
       this.navlist = document.querySelectorAll('.navlink');
       this.section = document.querySelectorAll('.section');
