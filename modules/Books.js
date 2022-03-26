@@ -2,8 +2,10 @@ import Book from './Book.js'
 import LocalStore from './LocalStore.js'
 import displayBook from './Display.js'
 
-
+//set up local storage
 let bookStorage = new LocalStore();
+
+// Book class
 export default class Books {
     constructor(book){
       this.booklist = book;
@@ -27,7 +29,6 @@ export default class Books {
       booksArr = booksArr.filter((book) => book.id !== id);
       this.booklist = booksArr;
      bookStorage.setLocalStorage(booksArr);
-    //localStorage.setItem('books', JSON.stringify(book));
       displayBook.display();
     }
   }
