@@ -19,12 +19,12 @@ class Display {
       });
       bookList.innerHTML = markup1;
       bookList.childNodes.forEach((book, index) => {
-        if ((index + 1) % 2 !== 0){
+        if ((index + 1) % 2 !== 0) {
           book.className = 'book gray';
         }
       });
       const removeB = document.querySelectorAll('.removeBtn');
-      for (let i= 0; i < removeB.length; i += 1) {
+      for (let i = 0; i < removeB.length; i += 1) {
         removeB[i].onclick = grabUserInput.remove;
       }
     }

@@ -2,8 +2,8 @@
 // eslint-disable-next-line import/no-cycle
 import Books from './Books.js';
 
-class GrabUserInput {  
-    // eslint-disable-next-line class-methods-use-this
+class GrabUserInput {
+  // eslint-disable-next-line class-methods-use-this
   add(event) {
     event.preventDefault();
     const input = document.querySelectorAll('[type="text"]');
@@ -20,6 +20,7 @@ class GrabUserInput {
     section[1].style.display = 'none';
   }
 
+  // eslint-disable-next-line class-methods-use-this
   remove(val) {
     val.preventDefault();
     const bookStorage = JSON.parse(localStorage.getItem('books'));
