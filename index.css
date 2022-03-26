@@ -50,6 +50,10 @@ body {
     width: 50px;
     box-shadow: 2px 2px #000;
   }
+
+  .date {
+    text-align: right;
+  }
   
   .book {
     min-height: 30px;
